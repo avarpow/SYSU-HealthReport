@@ -2,9 +2,10 @@ import os, time
 from selenium import webdriver
 from util import get_img
 from retrying import retry
+from pygeckodriver import geckodriver_path
 
 options = webdriver.FirefoxOptions()
-driver = webdriver.Firefox(executable_path=f"{os.environ['GITHUB_ACTION_PATH']}/geckodriver.exe", options=options)
+driver = webdriver.Firefox(executable_path=geckodriver_path)
 print("初始化selenium driver完成")
 
 bot_token = os.environ['TG_BOT_TOKEN']
